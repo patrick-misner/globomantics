@@ -5,7 +5,9 @@ const HouseRow = ({ house: { address, country, price } }) => {
     <tr>
       <td>{address}</td>
       <td>{country}</td>
-      <td>{currencyFormatter.format(price)}</td>
+      {price && (
+        <td className={`${price >= 500001 ? "text-primary" : ""}`}>{currencyFormatter.format(price)}</td>
+      )}
     </tr>
   );
 };
